@@ -517,18 +517,3 @@ while ingame:
                                         screen_luffy = screen.blit(luffy_d,(xluffy,yluffy))
                                         pygame.display.flip()
                                         time.sleep(0.075)
-
-        if event.type == KEYUP and event.key == K_ESCAPE:
-            inmenu = True
-            k = 0
-            screen_wallpaper = screen.blit(blur_menu1,(0,0))
-            screen_luffy = screen.blit(luffy_pos,(xluffy,yluffy))
-            pygame.display.flip()
-            print("Menuingame loaded")
-            while inmenu:
-                for event in pygame.event.get():
-                    if event.type ==
-
-
-
-
