@@ -1,0 +1,16 @@
+Plus bas niveau de la map : y=469
+Deuxième niveau plus bas de la map : y=349
+
+Plus haut niveau de la map (petit couloir) : y=109
+Maison gauche : y=189
+Maison droite : y=269
+
+Plus gauche de la map : x=56
+Deuxième plus à gauche de la map : x=184
+Troisième plus à gauche de la map : x=248
+Droite de la maison de gauche : x=440
+
+Plus droite de la map : x=824
+Deuxième plus droite de la map : x=760
+Gauche de la maison de droite : x=632
+Gauche de la maison de gauche : x=312

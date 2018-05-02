@@ -209,6 +209,84 @@ def LuffyPos():
     if luffy_pos == luffy_d:
         screen_luffy = screen.blit(luffy_d_blur,(xluffy,yluffy))
 
+def left_upforest():
+    if xluffy >= 56 and xluffy <= 184 and yluffy > 229:
+        return True
+    else:
+        return False
+
+def left_house():
+    if xluffy >= 248 and xluffy <= 568 and yluffy > 189:
+        return True
+    else:
+        return False
+
+def stairs():
+    if xluffy == 504 and yluffy > 109:
+        return True
+    else:
+        return False
+
+def right_house():
+    if xluffy >= 632 and xluffy <= 824 and yluffy > 269:
+        return True
+    else:
+        return False
+
+def left_downforest():
+    if xluffy >= 56 and xluffy <= 120 and yluffy < 349:
+        return True
+    else:
+        return False
+
+def middle_downforest():
+    if xluffy >= 184 and xluffy <= 760 and yluffy < 469:
+        return True
+    else:
+        return False
+
+def right_downforest():
+    if xluffy == 824 and yluffy < 349:
+        return True
+    else:
+        return False
+
+def left_forestborder1():
+    if yluffy >= 229 and yluffy <= 349 and xluffy > 56:
+        return True
+    else:
+        return False
+
+def left_forestborder2():
+    if yluffy >= 389 and yluffy <= 469 and xluffy > 184:
+        return True
+    else:
+        return False
+
+def left_forestborder3():
+    if yluffy >= 109 and yluffy <= 189 and xluffy > 248:
+        return True
+    else:
+        return False
+
+def right_righthouse():
+    if yluffy >= 189 and yluffy <= 229 and xluffy < 568:
+        return True
+    else:
+        return False
+
+def right_forest():
+    if yluffy >= 389 and yluffy <= 469 and xluffy < 760:
+        return True
+    else:
+        return False
+
+def right_map():
+    if yluffy >= 269 and yluffy <= 349 and xluffy < 824:
+        return True
+    else:
+        return False
+
 
 #Lancement de la boucle Menu
 
@@ -267,7 +345,7 @@ while menu_run:
 
 #Chargement du jeu
 
-LoadingGame()
+#LoadingGame()
 
 #Lancemant de la boucle du jeu "In Game"
 
@@ -288,232 +366,248 @@ while ingame:
             sys.exit()
 
         if event.type == KEYDOWN and event.key == K_RIGHT:
-            luffy_pos = luffy_r
-            xluffy += 8
-            screen_wallpaper = screen.blit(game_intro,(0,0))
-            screen_luffy = screen.blit(luffy_r1,(xluffy,yluffy))
-            pygame.display.flip()
-            time.sleep(0.075)
-
-            if event.type == KEYDOWN and event.key == K_RIGHT:
+            if right_righthouse() or right_forest() or right_map():
+                luffy_pos = luffy_r
                 xluffy += 8
                 screen_wallpaper = screen.blit(game_intro,(0,0))
-                screen_luffy = screen.blit(luffy_r2,(xluffy,yluffy))
+                screen_luffy = screen.blit(luffy_r1,(xluffy,yluffy))
                 pygame.display.flip()
                 time.sleep(0.075)
 
                 if event.type == KEYDOWN and event.key == K_RIGHT:
                     xluffy += 8
                     screen_wallpaper = screen.blit(game_intro,(0,0))
-                    screen_luffy = screen.blit(luffy_r1,(xluffy,yluffy))
+                    screen_luffy = screen.blit(luffy_r2,(xluffy,yluffy))
                     pygame.display.flip()
                     time.sleep(0.075)
 
                     if event.type == KEYDOWN and event.key == K_RIGHT:
                         xluffy += 8
                         screen_wallpaper = screen.blit(game_intro,(0,0))
-                        screen_luffy = screen.blit(luffy_r,(xluffy,yluffy))
+                        screen_luffy = screen.blit(luffy_r1,(xluffy,yluffy))
                         pygame.display.flip()
                         time.sleep(0.075)
 
                         if event.type == KEYDOWN and event.key == K_RIGHT:
                             xluffy += 8
                             screen_wallpaper = screen.blit(game_intro,(0,0))
-                            screen_luffy = screen.blit(luffy_r3,(xluffy,yluffy))
+                            screen_luffy = screen.blit(luffy_r,(xluffy,yluffy))
                             pygame.display.flip()
                             time.sleep(0.075)
 
                             if event.type == KEYDOWN and event.key == K_RIGHT:
                                 xluffy += 8
                                 screen_wallpaper = screen.blit(game_intro,(0,0))
-                                screen_luffy = screen.blit(luffy_r4,(xluffy,yluffy))
+                                screen_luffy = screen.blit(luffy_r3,(xluffy,yluffy))
                                 pygame.display.flip()
                                 time.sleep(0.075)
 
                                 if event.type == KEYDOWN and event.key == K_RIGHT:
                                     xluffy += 8
                                     screen_wallpaper = screen.blit(game_intro,(0,0))
-                                    screen_luffy = screen.blit(luffy_r3,(xluffy,yluffy))
+                                    screen_luffy = screen.blit(luffy_r4,(xluffy,yluffy))
                                     pygame.display.flip()
                                     time.sleep(0.075)
 
                                     if event.type == KEYDOWN and event.key == K_RIGHT:
                                         xluffy += 8
                                         screen_wallpaper = screen.blit(game_intro,(0,0))
-                                        screen_luffy = screen.blit(luffy_r,(xluffy,yluffy))
+                                        screen_luffy = screen.blit(luffy_r3,(xluffy,yluffy))
                                         pygame.display.flip()
                                         time.sleep(0.075)
 
+                                        if event.type == KEYDOWN and event.key == K_RIGHT:
+                                            xluffy += 8
+                                            screen_wallpaper = screen.blit(game_intro,(0,0))
+                                            screen_luffy = screen.blit(luffy_r,(xluffy,yluffy))
+                                            pygame.display.flip()
+                                            time.sleep(0.075)
+
+        print(xluffy)
+        print(yluffy)
+
 
         if event.type == KEYDOWN and event.key == K_LEFT:
-            luffy_pos = luffy_l
-            xluffy -= 8
-            screen_wallpaper = screen.blit(game_intro,(0,0))
-            screen_luffy = screen.blit(luffy_l1,(xluffy,yluffy))
-            pygame.display.flip()
-            time.sleep(0.075)
-
-            if event.type == KEYDOWN and event.key == K_LEFT:
+            if left_forestborder1() or left_forestborder2() or left_forestborder3():
+                luffy_pos = luffy_l
                 xluffy -= 8
                 screen_wallpaper = screen.blit(game_intro,(0,0))
-                screen_luffy = screen.blit(luffy_l2,(xluffy,yluffy))
+                screen_luffy = screen.blit(luffy_l1,(xluffy,yluffy))
                 pygame.display.flip()
                 time.sleep(0.075)
 
                 if event.type == KEYDOWN and event.key == K_LEFT:
                     xluffy -= 8
                     screen_wallpaper = screen.blit(game_intro,(0,0))
-                    screen_luffy = screen.blit(luffy_l1,(xluffy,yluffy))
+                    screen_luffy = screen.blit(luffy_l2,(xluffy,yluffy))
                     pygame.display.flip()
                     time.sleep(0.075)
 
                     if event.type == KEYDOWN and event.key == K_LEFT:
                         xluffy -= 8
                         screen_wallpaper = screen.blit(game_intro,(0,0))
-                        screen_luffy = screen.blit(luffy_l,(xluffy,yluffy))
+                        screen_luffy = screen.blit(luffy_l1,(xluffy,yluffy))
                         pygame.display.flip()
                         time.sleep(0.075)
 
                         if event.type == KEYDOWN and event.key == K_LEFT:
                             xluffy -= 8
                             screen_wallpaper = screen.blit(game_intro,(0,0))
-                            screen_luffy = screen.blit(luffy_l3,(xluffy,yluffy))
+                            screen_luffy = screen.blit(luffy_l,(xluffy,yluffy))
                             pygame.display.flip()
                             time.sleep(0.075)
 
                             if event.type == KEYDOWN and event.key == K_LEFT:
                                 xluffy -= 8
                                 screen_wallpaper = screen.blit(game_intro,(0,0))
-                                screen_luffy = screen.blit(luffy_l4,(xluffy,yluffy))
+                                screen_luffy = screen.blit(luffy_l3,(xluffy,yluffy))
                                 pygame.display.flip()
                                 time.sleep(0.075)
 
                                 if event.type == KEYDOWN and event.key == K_LEFT:
                                     xluffy -= 8
                                     screen_wallpaper = screen.blit(game_intro,(0,0))
-                                    screen_luffy = screen.blit(luffy_l3,(xluffy,yluffy))
+                                    screen_luffy = screen.blit(luffy_l4,(xluffy,yluffy))
                                     pygame.display.flip()
                                     time.sleep(0.075)
 
                                     if event.type == KEYDOWN and event.key == K_LEFT:
                                         xluffy -= 8
                                         screen_wallpaper = screen.blit(game_intro,(0,0))
-                                        screen_luffy = screen.blit(luffy_l,(xluffy,yluffy))
+                                        screen_luffy = screen.blit(luffy_l3,(xluffy,yluffy))
                                         pygame.display.flip()
                                         time.sleep(0.075)
 
+                                        if event.type == KEYDOWN and event.key == K_LEFT:
+                                            xluffy -= 8
+                                            screen_wallpaper = screen.blit(game_intro,(0,0))
+                                            screen_luffy = screen.blit(luffy_l,(xluffy,yluffy))
+                                            pygame.display.flip()
+                                            time.sleep(0.075)
+
+        print(xluffy)
+        print(yluffy)
+
 
         if event.type == KEYDOWN and event.key == K_UP:
-            luffy_pos = luffy_u
-            yluffy -= 5
-            screen_wallpaper = screen.blit(game_intro,(0,0))
-            screen_luffy = screen.blit(luffy_u1,(xluffy,yluffy))
-            pygame.display.flip()
-            time.sleep(0.075)
-
-            if event.type == KEYDOWN and event.key == K_UP:
+            if left_upforest() or left_house() or right_house() or stairs():
+                luffy_pos = luffy_u
                 yluffy -= 5
                 screen_wallpaper = screen.blit(game_intro,(0,0))
-                screen_luffy = screen.blit(luffy_u2,(xluffy,yluffy))
+                screen_luffy = screen.blit(luffy_u1,(xluffy,yluffy))
                 pygame.display.flip()
                 time.sleep(0.075)
 
                 if event.type == KEYDOWN and event.key == K_UP:
                     yluffy -= 5
                     screen_wallpaper = screen.blit(game_intro,(0,0))
-                    screen_luffy = screen.blit(luffy_u1,(xluffy,yluffy))
+                    screen_luffy = screen.blit(luffy_u2,(xluffy,yluffy))
                     pygame.display.flip()
                     time.sleep(0.075)
 
                     if event.type == KEYDOWN and event.key == K_UP:
                         yluffy -= 5
                         screen_wallpaper = screen.blit(game_intro,(0,0))
-                        screen_luffy = screen.blit(luffy_u,(xluffy,yluffy))
+                        screen_luffy = screen.blit(luffy_u1,(xluffy,yluffy))
                         pygame.display.flip()
                         time.sleep(0.075)
 
                         if event.type == KEYDOWN and event.key == K_UP:
                             yluffy -= 5
                             screen_wallpaper = screen.blit(game_intro,(0,0))
-                            screen_luffy = screen.blit(luffy_u3,(xluffy,yluffy))
+                            screen_luffy = screen.blit(luffy_u,(xluffy,yluffy))
                             pygame.display.flip()
                             time.sleep(0.075)
 
                             if event.type == KEYDOWN and event.key == K_UP:
                                 yluffy -= 5
                                 screen_wallpaper = screen.blit(game_intro,(0,0))
-                                screen_luffy = screen.blit(luffy_u4,(xluffy,yluffy))
+                                screen_luffy = screen.blit(luffy_u3,(xluffy,yluffy))
                                 pygame.display.flip()
                                 time.sleep(0.075)
 
                                 if event.type == KEYDOWN and event.key == K_UP:
                                     yluffy -= 5
                                     screen_wallpaper = screen.blit(game_intro,(0,0))
-                                    screen_luffy = screen.blit(luffy_u3,(xluffy,yluffy))
+                                    screen_luffy = screen.blit(luffy_u4,(xluffy,yluffy))
                                     pygame.display.flip()
                                     time.sleep(0.075)
 
                                     if event.type == KEYDOWN and event.key == K_UP:
                                         yluffy -= 5
                                         screen_wallpaper = screen.blit(game_intro,(0,0))
-                                        screen_luffy = screen.blit(luffy_u,(xluffy,yluffy))
+                                        screen_luffy = screen.blit(luffy_u3,(xluffy,yluffy))
                                         pygame.display.flip()
                                         time.sleep(0.075)
 
+                                        if event.type == KEYDOWN and event.key == K_UP:
+                                            yluffy -= 5
+                                            screen_wallpaper = screen.blit(game_intro,(0,0))
+                                            screen_luffy = screen.blit(luffy_u,(xluffy,yluffy))
+                                            pygame.display.flip()
+                                            time.sleep(0.075)
+
+        print(xluffy)
+        print(yluffy)
+
 
         if event.type == KEYDOWN and event.key == K_DOWN:
-            luffy_pos = luffy_d
-            yluffy += 5
-            screen_wallpaper = screen.blit(game_intro,(0,0))
-            screen_luffy = screen.blit(luffy_d1,(xluffy,yluffy))
-            pygame.display.flip()
-            time.sleep(0.075)
-
-            if event.type == KEYDOWN and event.key == K_DOWN:
+            if left_downforest() or middle_downforest() or right_downforest():
+                luffy_pos = luffy_d
                 yluffy += 5
                 screen_wallpaper = screen.blit(game_intro,(0,0))
-                screen_luffy = screen.blit(luffy_d2,(xluffy,yluffy))
+                screen_luffy = screen.blit(luffy_d1,(xluffy,yluffy))
                 pygame.display.flip()
                 time.sleep(0.075)
 
                 if event.type == KEYDOWN and event.key == K_DOWN:
                     yluffy += 5
                     screen_wallpaper = screen.blit(game_intro,(0,0))
-                    screen_luffy = screen.blit(luffy_d1,(xluffy,yluffy))
+                    screen_luffy = screen.blit(luffy_d2,(xluffy,yluffy))
                     pygame.display.flip()
                     time.sleep(0.075)
 
                     if event.type == KEYDOWN and event.key == K_DOWN:
                         yluffy += 5
                         screen_wallpaper = screen.blit(game_intro,(0,0))
-                        screen_luffy = screen.blit(luffy_d,(xluffy,yluffy))
+                        screen_luffy = screen.blit(luffy_d1,(xluffy,yluffy))
                         pygame.display.flip()
                         time.sleep(0.075)
 
                         if event.type == KEYDOWN and event.key == K_DOWN:
                             yluffy += 5
                             screen_wallpaper = screen.blit(game_intro,(0,0))
-                            screen_luffy = screen.blit(luffy_d3,(xluffy,yluffy))
+                            screen_luffy = screen.blit(luffy_d,(xluffy,yluffy))
                             pygame.display.flip()
                             time.sleep(0.075)
 
                             if event.type == KEYDOWN and event.key == K_DOWN:
                                 yluffy += 5
                                 screen_wallpaper = screen.blit(game_intro,(0,0))
-                                screen_luffy = screen.blit(luffy_d4,(xluffy,yluffy))
+                                screen_luffy = screen.blit(luffy_d3,(xluffy,yluffy))
                                 pygame.display.flip()
                                 time.sleep(0.075)
 
                                 if event.type == KEYDOWN and event.key == K_DOWN:
                                     yluffy += 5
                                     screen_wallpaper = screen.blit(game_intro,(0,0))
-                                    screen_luffy = screen.blit(luffy_d3,(xluffy,yluffy))
+                                    screen_luffy = screen.blit(luffy_d4,(xluffy,yluffy))
                                     pygame.display.flip()
                                     time.sleep(0.075)
 
                                     if event.type == KEYDOWN and event.key == K_DOWN:
                                         yluffy += 5
                                         screen_wallpaper = screen.blit(game_intro,(0,0))
-                                        screen_luffy = screen.blit(luffy_d,(xluffy,yluffy))
+                                        screen_luffy = screen.blit(luffy_d3,(xluffy,yluffy))
                                         pygame.display.flip()
                                         time.sleep(0.075)
+
+                                        if event.type == KEYDOWN and event.key == K_DOWN:
+                                            yluffy += 5
+                                            screen_wallpaper = screen.blit(game_intro,(0,0))
+                                            screen_luffy = screen.blit(luffy_d,(xluffy,yluffy))
+                                            pygame.display.flip()
+                                            time.sleep(0.075)
+
+            print(xluffy)
+            print(yluffy)
