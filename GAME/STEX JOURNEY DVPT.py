@@ -32,6 +32,9 @@ game_intro = pygame.image.load("pictures/game_intro.png").convert()
 loading_1 = pygame.image.load("pictures/loading_1.png").convert()
 loading_2 = pygame.image.load("pictures/loading_2.png").convert()
 loading_3 = pygame.image.load("pictures/loading_3.png").convert()
+first_house = pygame.image.load("pictures/first_house.png").convert()
+second_house = pygame.image.load("pictures/second_house.png").convert()
+up_house = pygame.image.load("pictures/up_house.png").convert()
 
 luffy_d = pygame.image.load("pictures/avatar/luffy_d.png").convert_alpha()
 luffy_d_blur = pygame.image.load("pictures/avatar/luffy_d_blur.png").convert_alpha()
@@ -59,6 +62,12 @@ luffy_l3 = pygame.image.load("pictures/avatar/luffy_l3.png").convert_alpha()
 luffy_l4 = pygame.image.load("pictures/avatar/luffy_l4.png").convert_alpha()
 
 villager = pygame.image.load("pictures/avatar/bot.png").convert_alpha()
+
+mcdo = pygame.image.load("pictures/items/mcdo.png").convert_alpha()
+potion = pygame.image.load("pictures/items/potion.png").convert_alpha()
+shield = pygame.image.load("pictures/items/shield.png").convert_alpha()
+sword = pygame.image.load("pictures/items/sword.png").convert_alpha()
+nothing = pygame.image.load("pictures/nothing.png").convert_alpha()
 
 game_title = pygame.image.load("buttons/home_title.png").convert_alpha()
 play_1 = pygame.image.load("buttons/jouer_1.png").convert_alpha()
@@ -103,6 +112,7 @@ def LoadingMenu():
 def Play_intro():
     screen_wallpaper = screen.blit(game_intro,(0,0))
     screen_luffy = screen.blit(luffy_d,(xluffy,yluffy))
+    sword_display = screen.blit(sword,(254,128))
     pygame.mouse.set_visible(False)
     pygame.key.set_repeat(True)
     pygame.display.flip()
@@ -209,83 +219,160 @@ def LuffyPos():
     if luffy_pos == luffy_d:
         screen_luffy = screen.blit(luffy_d_blur,(xluffy,yluffy))
 
+xleft_upforest1 = 56
+xleft_upforest2 = 184
+yleft_upforest = 229
+
+xleft_house1 = 248
+xleft_house2 = 568
+yleft_house = 189
+
+xstairs = 504
+ystairs = 109
+
+xright_house1 = 632
+xright_house2 = 824
+yright_house = 269
+
+xleft_stairs = 504
+yleft_stairs = 149
+
+xleft_downforest1 = 56
+xleft_downforest2 = 120
+yleft_downforest = 349
+
+xmiddle_downforest1 = 184
+xmiddle_downforest2 = 760
+ymiddle_downforest = 469
+
+xright_downforest = 824
+yright_downforest = 349
+
+yleft_forestborder1_1 = 229
+yleft_forestborder1_2 = 349
+xleft_forestborder1 = 56
+
+yleft_forestborder2_1 = 389
+yleft_forestborder2_2 = 469
+xleft_forestborder2 = 184
+
+yleft_forestborder3_1 = 109
+yleft_forestborder3_2 = 189
+xleft_forestborder3 = 248
+
+yright_righthouse1 = 189
+yright_righthouse2 = 229
+xright_righthouse = 568
+
+yright_forest1 = 389
+yright_forest2 = 469
+xright_forest = 760
+
+yright_map1 = 269
+yright_map2 = 349
+xright_map = 824
+
 def left_upforest():
-    if xluffy >= 56 and xluffy <= 184 and yluffy > 229:
+    if xluffy >= xleft_upforest1 and xluffy <= xleft_upforest2 and yluffy > yleft_upforest:
         return True
     else:
         return False
 
 def left_house():
-    if xluffy >= 248 and xluffy <= 568 and yluffy > 189:
+    if xluffy >= xleft_house1 and xluffy <= xleft_house2 and yluffy > yleft_house:
         return True
     else:
         return False
 
 def stairs():
-    if xluffy == 504 and yluffy > 109:
+    if xluffy == xstairs and yluffy > ystairs:
         return True
     else:
         return False
 
 def right_house():
-    if xluffy >= 632 and xluffy <= 824 and yluffy > 269:
+    if xluffy >= xright_house1 and xluffy <= xright_house2 and yluffy > yright_house:
         return True
     else:
         return False
 
 def left_downforest():
-    if xluffy >= 56 and xluffy <= 120 and yluffy < 349:
+    if xluffy >= xleft_downforest1 and xluffy <= xleft_downforest2 and yluffy < yleft_downforest:
         return True
     else:
         return False
 
 def middle_downforest():
-    if xluffy >= 184 and xluffy <= 760 and yluffy < 469:
+    if xluffy >= xmiddle_downforest1 and xluffy <= xmiddle_downforest2 and yluffy < ymiddle_downforest:
         return True
     else:
         return False
 
 def right_downforest():
-    if xluffy == 824 and yluffy < 349:
+    if xluffy == xright_downforest and yluffy < yright_downforest:
         return True
     else:
         return False
 
+def left_stairs():
+    if xluffy == xleft_stairs and yluffy == yleft_stairs:
+        return False
+
 def left_forestborder1():
-    if yluffy >= 229 and yluffy <= 349 and xluffy > 56:
+    if yluffy >= yleft_forestborder1_1 and yluffy <= yleft_forestborder1_2 and xluffy > xleft_forestborder1:
         return True
     else:
         return False
 
 def left_forestborder2():
-    if yluffy >= 389 and yluffy <= 469 and xluffy > 184:
+    if yluffy >= yleft_forestborder2_1 and yluffy <= yleft_forestborder2_2 and xluffy > xleft_forestborder2:
         return True
     else:
         return False
 
 def left_forestborder3():
-    if yluffy >= 109 and yluffy <= 189 and xluffy > 248:
+    if yluffy >= yleft_forestborder3_1 and yluffy <= yleft_forestborder3_2 and xluffy > xleft_forestborder3:
         return True
     else:
         return False
 
 def right_righthouse():
-    if yluffy >= 189 and yluffy <= 229 and xluffy < 568:
+    if yluffy >= yright_righthouse1 and yluffy <= yright_righthouse2 and xluffy < xright_righthouse:
         return True
     else:
         return False
 
 def right_forest():
-    if yluffy >= 389 and yluffy <= 469 and xluffy < 760:
+    if yluffy >= yright_forest1 and yluffy <= yright_forest2 and xluffy < xright_forest:
         return True
     else:
         return False
 
 def right_map():
-    if yluffy >= 269 and yluffy <= 349 and xluffy < 824:
+    if yluffy >= yright_map1 and yluffy <= yright_map2 and xluffy < xright_map:
         return True
     else:
         return False
+
+def inHouse1():
+    global lc
+    if lc == 1:
+        potion_display = screen.blit(potion,(542,163))
+
+def inHouse2():
+    global lc
+    if lc == 2:
+        mcdo_display = screen.blit(mcdo,(371,140))
+
+def inUphouse():
+    global lc
+    if lc == 3:
+        shield_display = screen.blit(shield,(400,207))
+
+def outdoor():
+    global lc
+    if lc == 0:
+        sword_display = screen.blit(sword,(254,128))
 
 
 #Lancement de la boucle Menu
@@ -351,12 +438,15 @@ while menu_run:
 
 ingame = True
 i = 0
+s1 = 0
 xluffy = 824
 yluffy = 349
 luffy_pos = luffy_d
 
 if i == 0:
     Play_intro()
+    lc = 0
+    i += 1
 
 while ingame:
     for event in pygame.event.get():
@@ -365,12 +455,409 @@ while ingame:
             pygame.quit()
             sys.exit()
 
+        if xluffy == 696 and yluffy == 269 and event.type == KEYDOWN and event.key == K_UP:
+            s1 += 1
+            lc = 2
+
+            xleft_upforest1 = 243
+            xleft_upforest2 = 691
+            yleft_upforest = 173
+
+            xleft_house1 = 243
+            xleft_house2 = 691
+            yleft_house = 173
+
+            xstairs = 0
+            ystairs = 0
+
+            xright_house1 = 243
+            xright_house2 = 691
+            yright_house = 173
+
+            xleft_downforest1 = 243
+            xleft_downforest2 = 243
+            yleft_downforest = 333
+
+            xmiddle_downforest1 = 307
+            xmiddle_downforest2 = 627
+            ymiddle_downforest = 413
+
+            xright_downforest = 691
+            yright_downforest = 333
+
+            xleft_stairs = 0
+            yleft_stairs = 0
+
+            yleft_forestborder1_1 = 373
+            yleft_forestborder1_2 = 413
+            xleft_forestborder1 = 307
+
+            yleft_forestborder2_1 = 173
+            yleft_forestborder2_2 = 333
+            xleft_forestborder2 = 243
+
+            yleft_forestborder3_1 = 173
+            yleft_forestborder3_2 = 333
+            xleft_forestborder3 = 243
+
+            yright_righthouse1 = 373
+            yright_righthouse2 = 413
+            xright_righthouse = 627
+
+            yright_forest1 = 173
+            yright_forest2 = 333
+            xright_forest = 691
+
+            yright_map1 = 173
+            yright_map2 = 333
+            xright_map = 691
+
+            if s1 == 1:
+                game_intro = second_house
+                screen_wallpaper = screen.blit(game_intro,(0,0))
+                mcdo_display = screen.blit(mcdo,(371,140))
+                xluffy = 435
+                yluffy = 413
+                screen_luffy = screen.blit(luffy_u,(xluffy,yluffy))
+                pygame.display.flip()
+
+        if xluffy == 435 and yluffy == 413 and event.type == KEYDOWN and event.key == K_DOWN and s1 == 1:
+            s1 = 0
+            lc = 0
+
+            xleft_upforest1 = 56
+            xleft_upforest2 = 184
+            yleft_upforest = 229
+
+            xleft_house1 = 248
+            xleft_house2 = 568
+            yleft_house = 189
+
+            xstairs = 504
+            ystairs = 109
+
+            xright_house1 = 632
+            xright_house2 = 824
+            yright_house = 269
+
+            xleft_downforest1 = 56
+            xleft_downforest2 = 120
+            yleft_downforest = 349
+
+            xmiddle_downforest1 = 184
+            xmiddle_downforest2 = 760
+            ymiddle_downforest = 469
+
+            xright_downforest = 824
+            yright_downforest = 349
+
+            xleft_stairs = 504
+            yleft_stairs = 149
+
+            yleft_forestborder1_1 = 229
+            yleft_forestborder1_2 = 349
+            xleft_forestborder1 = 56
+
+            yleft_forestborder2_1 = 389
+            yleft_forestborder2_2 = 469
+            xleft_forestborder2 = 184
+
+            yleft_forestborder3_1 = 109
+            yleft_forestborder3_2 = 189
+            xleft_forestborder3 = 248
+
+            yright_righthouse1 = 189
+            yright_righthouse2 = 229
+            xright_righthouse = 568
+
+            yright_forest1 = 389
+            yright_forest2 = 469
+            xright_forest = 760
+
+            yright_map1 = 269
+            yright_map2 = 349
+            xright_map = 824
+
+            game_intro = pygame.image.load("pictures/game_intro.png").convert()
+            screen_wallpaper = screen.blit(game_intro,(0,0))
+            sword_display = screen.blit(sword,(254,128))
+            xluffy = 696
+            yluffy = 269
+            screen_luffy = screen.blit(luffy_d,(xluffy,yluffy))
+            pygame.display.flip()
+
+        if xluffy == 376 and yluffy == 189 and event.type == KEYDOWN and event.key == K_UP:
+            s1 += 1
+            lc = 1
+
+            xleft_upforest1 = 284
+            xleft_upforest2 = 668
+            yleft_upforest = 174
+
+            xleft_house1 = 284
+            xleft_house2 = 668
+            yleft_house = 174
+
+            xstairs = 0
+            ystairs = 0
+
+            xright_house1 = 284
+            xright_house2 = 668
+            yright_house = 174
+
+            xleft_downforest1 = 284
+            xleft_downforest2 = 284
+            yleft_downforest = 334
+
+            xmiddle_downforest1 = 348
+            xmiddle_downforest2 = 668
+            ymiddle_downforest = 414
+
+            xright_downforest = 0
+            yright_downforest = 0
+
+            xleft_stairs = 0
+            yleft_stairs = 0
+
+            yleft_forestborder1_1 = 374
+            yleft_forestborder1_2 = 414
+            xleft_forestborder1 = 348
+
+            yleft_forestborder2_1 = 174
+            yleft_forestborder2_2 = 334
+            xleft_forestborder2 = 284
+
+            yleft_forestborder3_1 = 174
+            yleft_forestborder3_2 = 334
+            xleft_forestborder3 = 284
+
+            yright_righthouse1 = 174
+            yright_righthouse2 = 414
+            xright_righthouse = 668
+
+            yright_forest1 = 174
+            yright_forest2 = 414
+            xright_forest = 668
+
+            yright_map1 = 174
+            yright_map2 = 414
+            xright_map = 668
+
+            if s1 == 1:
+                game_intro = first_house
+                screen_wallpaper = screen.blit(game_intro,(0,0))
+                potion_display = screen.blit(potion,(542,163))
+                xluffy = 540
+                yluffy = 414
+                screen_luffy = screen.blit(luffy_u,(xluffy,yluffy))
+                pygame.display.flip()
+
+        if xluffy == 540 and yluffy == 414 and event.type == KEYDOWN and event.key == K_DOWN and s1 == 1:
+            s1 = 0
+            lc = 0
+
+            xleft_upforest1 = 56
+            xleft_upforest2 = 184
+            yleft_upforest = 229
+
+            xleft_house1 = 248
+            xleft_house2 = 568
+            yleft_house = 189
+
+            xstairs = 504
+            ystairs = 109
+
+            xright_house1 = 632
+            xright_house2 = 824
+            yright_house = 269
+
+            xleft_downforest1 = 56
+            xleft_downforest2 = 120
+            yleft_downforest = 349
+
+            xmiddle_downforest1 = 184
+            xmiddle_downforest2 = 760
+            ymiddle_downforest = 469
+
+            xright_downforest = 824
+            yright_downforest = 349
+
+            xleft_stairs = 504
+            yleft_stairs = 149
+
+            yleft_forestborder1_1 = 229
+            yleft_forestborder1_2 = 349
+            xleft_forestborder1 = 56
+
+            yleft_forestborder2_1 = 389
+            yleft_forestborder2_2 = 469
+            xleft_forestborder2 = 184
+
+            yleft_forestborder3_1 = 109
+            yleft_forestborder3_2 = 189
+            xleft_forestborder3 = 248
+
+            yright_righthouse1 = 189
+            yright_righthouse2 = 229
+            xright_righthouse = 568
+
+            yright_forest1 = 389
+            yright_forest2 = 469
+            xright_forest = 760
+
+            yright_map1 = 269
+            yright_map2 = 349
+            xright_map = 824
+
+            game_intro = pygame.image.load("pictures/game_intro.png").convert()
+            screen_wallpaper = screen.blit(game_intro,(0,0))
+            sword_display = screen.blit(sword,(254,128))
+            xluffy = 376
+            yluffy = 189
+            screen_luffy = screen.blit(luffy_d,(xluffy,yluffy))
+            pygame.display.flip()
+
+        if xluffy == 504 and yluffy == 109 and event.type == KEYDOWN and event.key == K_LEFT:
+            s1 += 1
+            lc = 3
+
+            xleft_upforest1 = 272
+            xleft_upforest2 = 592
+            yleft_upforest = 230
+
+            xleft_house1 = 272
+            xleft_house2 = 592
+            yleft_house = 230
+
+            xstairs = 656
+            ystairs = 270
+
+            xright_house1 = 272
+            xright_house2 = 592
+            yright_house = 230
+
+            xleft_stairs = 0
+            yleft_stairs = 0
+
+            xleft_downforest1 = 272
+            xleft_downforest2 = 592
+            yleft_downforest = 430
+
+            xmiddle_downforest1 = 272
+            xmiddle_downforest2 = 592
+            ymiddle_downforest = 430
+
+            xright_downforest = 656
+            yright_downforest = 310
+
+            yleft_forestborder1_1 = 230
+            yleft_forestborder1_2 = 440
+            xleft_forestborder1 = 272
+
+            yleft_forestborder2_1 = 230
+            yleft_forestborder2_2 = 440
+            xleft_forestborder2 = 272
+
+            yleft_forestborder3_1 = 230
+            yleft_forestborder3_2 = 440
+            xleft_forestborder3 = 272
+
+            yright_righthouse1 = 230
+            yright_righthouse2 = 230
+            xright_righthouse = 592
+
+            yright_forest1 = 350
+            yright_forest2 = 430
+            xright_forest = 592
+
+            yright_map1 = 270
+            yright_map2 = 310
+            xright_map = 656
+
+            if s1 == 1:
+                game_intro = up_house
+                screen_wallpaper = screen.blit(game_intro,(0,0))
+                shield_display = screen.blit(shield,(400,207))
+                xluffy = 592
+                yluffy = 230
+                screen_luffy = screen.blit(luffy_l,(xluffy,yluffy))
+                pygame.display.flip()
+
+        if xluffy == 592 and yluffy == 230 and event.type == KEYDOWN and event.key == K_RIGHT and s1 == 1:
+            s1 = 0
+            lc = 0
+
+            xleft_upforest1 = 56
+            xleft_upforest2 = 184
+            yleft_upforest = 229
+
+            xleft_house1 = 248
+            xleft_house2 = 568
+            yleft_house = 189
+
+            xstairs = 504
+            ystairs = 109
+
+            xright_house1 = 632
+            xright_house2 = 824
+            yright_house = 269
+
+            xleft_downforest1 = 56
+            xleft_downforest2 = 120
+            yleft_downforest = 349
+
+            xmiddle_downforest1 = 184
+            xmiddle_downforest2 = 760
+            ymiddle_downforest = 469
+
+            xright_downforest = 824
+            yright_downforest = 349
+
+            xleft_stairs = 504
+            yleft_stairs =149
+
+            yleft_forestborder1_1 = 229
+            yleft_forestborder1_2 = 349
+            xleft_forestborder1 = 56
+
+            yleft_forestborder2_1 = 389
+            yleft_forestborder2_2 = 469
+            xleft_forestborder2 = 184
+
+            yleft_forestborder3_1 = 109
+            yleft_forestborder3_2 = 189
+            xleft_forestborder3 = 248
+
+            yright_righthouse1 = 189
+            yright_righthouse2 = 229
+            xright_righthouse = 568
+
+            yright_forest1 = 389
+            yright_forest2 = 469
+            xright_forest = 760
+
+            yright_map1 = 269
+            yright_map2 = 349
+            xright_map = 824
+
+            game_intro = pygame.image.load("pictures/game_intro.png").convert()
+            screen_wallpaper = screen.blit(game_intro,(0,0))
+            sword_display = screen.blit(sword,(254,128))
+            xluffy = 504
+            yluffy = 109
+            screen_luffy = screen.blit(luffy_d,(xluffy,yluffy))
+            pygame.display.flip()
+
         if event.type == KEYDOWN and event.key == K_RIGHT:
             if right_righthouse() or right_forest() or right_map():
                 luffy_pos = luffy_r
                 xluffy += 8
                 screen_wallpaper = screen.blit(game_intro,(0,0))
                 screen_luffy = screen.blit(luffy_r1,(xluffy,yluffy))
+                inHouse1()
+                inHouse2()
+                inUphouse()
+                outdoor()
                 pygame.display.flip()
                 time.sleep(0.075)
 
@@ -378,6 +865,10 @@ while ingame:
                     xluffy += 8
                     screen_wallpaper = screen.blit(game_intro,(0,0))
                     screen_luffy = screen.blit(luffy_r2,(xluffy,yluffy))
+                    inHouse1()
+                    inHouse2()
+                    inUphouse()
+                    outdoor()
                     pygame.display.flip()
                     time.sleep(0.075)
 
@@ -385,6 +876,10 @@ while ingame:
                         xluffy += 8
                         screen_wallpaper = screen.blit(game_intro,(0,0))
                         screen_luffy = screen.blit(luffy_r1,(xluffy,yluffy))
+                        inHouse1()
+                        inHouse2()
+                        inUphouse()
+                        outdoor()
                         pygame.display.flip()
                         time.sleep(0.075)
 
@@ -392,6 +887,10 @@ while ingame:
                             xluffy += 8
                             screen_wallpaper = screen.blit(game_intro,(0,0))
                             screen_luffy = screen.blit(luffy_r,(xluffy,yluffy))
+                            inHouse1()
+                            inHouse2()
+                            inUphouse()
+                            outdoor()
                             pygame.display.flip()
                             time.sleep(0.075)
 
@@ -399,6 +898,10 @@ while ingame:
                                 xluffy += 8
                                 screen_wallpaper = screen.blit(game_intro,(0,0))
                                 screen_luffy = screen.blit(luffy_r3,(xluffy,yluffy))
+                                inHouse1()
+                                inHouse2()
+                                inUphouse()
+                                outdoor()
                                 pygame.display.flip()
                                 time.sleep(0.075)
 
@@ -406,6 +909,10 @@ while ingame:
                                     xluffy += 8
                                     screen_wallpaper = screen.blit(game_intro,(0,0))
                                     screen_luffy = screen.blit(luffy_r4,(xluffy,yluffy))
+                                    inHouse1()
+                                    inHouse2()
+                                    inUphouse()
+                                    outdoor()
                                     pygame.display.flip()
                                     time.sleep(0.075)
 
@@ -413,6 +920,10 @@ while ingame:
                                         xluffy += 8
                                         screen_wallpaper = screen.blit(game_intro,(0,0))
                                         screen_luffy = screen.blit(luffy_r3,(xluffy,yluffy))
+                                        inHouse1()
+                                        inHouse2()
+                                        inUphouse()
+                                        outdoor()
                                         pygame.display.flip()
                                         time.sleep(0.075)
 
@@ -420,6 +931,10 @@ while ingame:
                                             xluffy += 8
                                             screen_wallpaper = screen.blit(game_intro,(0,0))
                                             screen_luffy = screen.blit(luffy_r,(xluffy,yluffy))
+                                            inHouse1()
+                                            inHouse2()
+                                            inUphouse()
+                                            outdoor()
                                             pygame.display.flip()
                                             time.sleep(0.075)
 
@@ -428,11 +943,15 @@ while ingame:
 
 
         if event.type == KEYDOWN and event.key == K_LEFT:
-            if left_forestborder1() or left_forestborder2() or left_forestborder3():
+            if left_forestborder1() or left_forestborder2() or left_forestborder3() or left_stairs():
                 luffy_pos = luffy_l
                 xluffy -= 8
                 screen_wallpaper = screen.blit(game_intro,(0,0))
                 screen_luffy = screen.blit(luffy_l1,(xluffy,yluffy))
+                inHouse1()
+                inHouse2()
+                inUphouse()
+                outdoor()
                 pygame.display.flip()
                 time.sleep(0.075)
 
@@ -440,6 +959,10 @@ while ingame:
                     xluffy -= 8
                     screen_wallpaper = screen.blit(game_intro,(0,0))
                     screen_luffy = screen.blit(luffy_l2,(xluffy,yluffy))
+                    inHouse1()
+                    inHouse2()
+                    inUphouse()
+                    outdoor()
                     pygame.display.flip()
                     time.sleep(0.075)
 
@@ -447,6 +970,10 @@ while ingame:
                         xluffy -= 8
                         screen_wallpaper = screen.blit(game_intro,(0,0))
                         screen_luffy = screen.blit(luffy_l1,(xluffy,yluffy))
+                        inHouse1()
+                        inHouse2()
+                        inUphouse()
+                        outdoor()
                         pygame.display.flip()
                         time.sleep(0.075)
 
@@ -454,6 +981,10 @@ while ingame:
                             xluffy -= 8
                             screen_wallpaper = screen.blit(game_intro,(0,0))
                             screen_luffy = screen.blit(luffy_l,(xluffy,yluffy))
+                            inHouse1()
+                            inHouse2()
+                            inUphouse()
+                            outdoor()
                             pygame.display.flip()
                             time.sleep(0.075)
 
@@ -461,6 +992,10 @@ while ingame:
                                 xluffy -= 8
                                 screen_wallpaper = screen.blit(game_intro,(0,0))
                                 screen_luffy = screen.blit(luffy_l3,(xluffy,yluffy))
+                                inHouse1()
+                                inHouse2()
+                                inUphouse()
+                                outdoor()
                                 pygame.display.flip()
                                 time.sleep(0.075)
 
@@ -468,6 +1003,10 @@ while ingame:
                                     xluffy -= 8
                                     screen_wallpaper = screen.blit(game_intro,(0,0))
                                     screen_luffy = screen.blit(luffy_l4,(xluffy,yluffy))
+                                    inHouse1()
+                                    inHouse2()
+                                    inUphouse()
+                                    outdoor()
                                     pygame.display.flip()
                                     time.sleep(0.075)
 
@@ -475,6 +1014,10 @@ while ingame:
                                         xluffy -= 8
                                         screen_wallpaper = screen.blit(game_intro,(0,0))
                                         screen_luffy = screen.blit(luffy_l3,(xluffy,yluffy))
+                                        inHouse1()
+                                        inHouse2()
+                                        inUphouse()
+                                        outdoor()
                                         pygame.display.flip()
                                         time.sleep(0.075)
 
@@ -482,6 +1025,10 @@ while ingame:
                                             xluffy -= 8
                                             screen_wallpaper = screen.blit(game_intro,(0,0))
                                             screen_luffy = screen.blit(luffy_l,(xluffy,yluffy))
+                                            inHouse1()
+                                            inHouse2()
+                                            inUphouse()
+                                            outdoor()
                                             pygame.display.flip()
                                             time.sleep(0.075)
 
@@ -495,6 +1042,10 @@ while ingame:
                 yluffy -= 5
                 screen_wallpaper = screen.blit(game_intro,(0,0))
                 screen_luffy = screen.blit(luffy_u1,(xluffy,yluffy))
+                inHouse1()
+                inHouse2()
+                inUphouse()
+                outdoor()
                 pygame.display.flip()
                 time.sleep(0.075)
 
@@ -502,6 +1053,10 @@ while ingame:
                     yluffy -= 5
                     screen_wallpaper = screen.blit(game_intro,(0,0))
                     screen_luffy = screen.blit(luffy_u2,(xluffy,yluffy))
+                    inHouse1()
+                    inHouse2()
+                    inUphouse()
+                    outdoor()
                     pygame.display.flip()
                     time.sleep(0.075)
 
@@ -509,6 +1064,10 @@ while ingame:
                         yluffy -= 5
                         screen_wallpaper = screen.blit(game_intro,(0,0))
                         screen_luffy = screen.blit(luffy_u1,(xluffy,yluffy))
+                        inHouse1()
+                        inHouse2()
+                        inUphouse()
+                        outdoor()
                         pygame.display.flip()
                         time.sleep(0.075)
 
@@ -516,6 +1075,10 @@ while ingame:
                             yluffy -= 5
                             screen_wallpaper = screen.blit(game_intro,(0,0))
                             screen_luffy = screen.blit(luffy_u,(xluffy,yluffy))
+                            inHouse1()
+                            inHouse2()
+                            inUphouse()
+                            outdoor()
                             pygame.display.flip()
                             time.sleep(0.075)
 
@@ -523,6 +1086,10 @@ while ingame:
                                 yluffy -= 5
                                 screen_wallpaper = screen.blit(game_intro,(0,0))
                                 screen_luffy = screen.blit(luffy_u3,(xluffy,yluffy))
+                                inHouse1()
+                                inHouse2()
+                                inUphouse()
+                                outdoor()
                                 pygame.display.flip()
                                 time.sleep(0.075)
 
@@ -530,6 +1097,10 @@ while ingame:
                                     yluffy -= 5
                                     screen_wallpaper = screen.blit(game_intro,(0,0))
                                     screen_luffy = screen.blit(luffy_u4,(xluffy,yluffy))
+                                    inHouse1()
+                                    inHouse2()
+                                    inUphouse()
+                                    outdoor()
                                     pygame.display.flip()
                                     time.sleep(0.075)
 
@@ -537,6 +1108,10 @@ while ingame:
                                         yluffy -= 5
                                         screen_wallpaper = screen.blit(game_intro,(0,0))
                                         screen_luffy = screen.blit(luffy_u3,(xluffy,yluffy))
+                                        inHouse1()
+                                        inHouse2()
+                                        inUphouse()
+                                        outdoor()
                                         pygame.display.flip()
                                         time.sleep(0.075)
 
@@ -544,8 +1119,13 @@ while ingame:
                                             yluffy -= 5
                                             screen_wallpaper = screen.blit(game_intro,(0,0))
                                             screen_luffy = screen.blit(luffy_u,(xluffy,yluffy))
+                                            inHouse1()
+                                            inHouse2()
+                                            inUphouse()
+                                            outdoor()
                                             pygame.display.flip()
                                             time.sleep(0.075)
+
 
         print(xluffy)
         print(yluffy)
@@ -557,6 +1137,10 @@ while ingame:
                 yluffy += 5
                 screen_wallpaper = screen.blit(game_intro,(0,0))
                 screen_luffy = screen.blit(luffy_d1,(xluffy,yluffy))
+                inHouse1()
+                inHouse2()
+                inUphouse()
+                outdoor()
                 pygame.display.flip()
                 time.sleep(0.075)
 
@@ -564,6 +1148,10 @@ while ingame:
                     yluffy += 5
                     screen_wallpaper = screen.blit(game_intro,(0,0))
                     screen_luffy = screen.blit(luffy_d2,(xluffy,yluffy))
+                    inHouse1()
+                    inHouse2()
+                    inUphouse()
+                    outdoor()
                     pygame.display.flip()
                     time.sleep(0.075)
 
@@ -571,6 +1159,10 @@ while ingame:
                         yluffy += 5
                         screen_wallpaper = screen.blit(game_intro,(0,0))
                         screen_luffy = screen.blit(luffy_d1,(xluffy,yluffy))
+                        inHouse1()
+                        inHouse2()
+                        inUphouse()
+                        outdoor()
                         pygame.display.flip()
                         time.sleep(0.075)
 
@@ -578,6 +1170,10 @@ while ingame:
                             yluffy += 5
                             screen_wallpaper = screen.blit(game_intro,(0,0))
                             screen_luffy = screen.blit(luffy_d,(xluffy,yluffy))
+                            inHouse1()
+                            inHouse2()
+                            inUphouse()
+                            outdoor()
                             pygame.display.flip()
                             time.sleep(0.075)
 
@@ -585,6 +1181,10 @@ while ingame:
                                 yluffy += 5
                                 screen_wallpaper = screen.blit(game_intro,(0,0))
                                 screen_luffy = screen.blit(luffy_d3,(xluffy,yluffy))
+                                inHouse1()
+                                inHouse2()
+                                inUphouse()
+                                outdoor()
                                 pygame.display.flip()
                                 time.sleep(0.075)
 
@@ -592,6 +1192,10 @@ while ingame:
                                     yluffy += 5
                                     screen_wallpaper = screen.blit(game_intro,(0,0))
                                     screen_luffy = screen.blit(luffy_d4,(xluffy,yluffy))
+                                    inHouse1()
+                                    inHouse2()
+                                    inUphouse()
+                                    outdoor()
                                     pygame.display.flip()
                                     time.sleep(0.075)
 
@@ -599,6 +1203,10 @@ while ingame:
                                         yluffy += 5
                                         screen_wallpaper = screen.blit(game_intro,(0,0))
                                         screen_luffy = screen.blit(luffy_d3,(xluffy,yluffy))
+                                        inHouse1()
+                                        inHouse2()
+                                        inUphouse()
+                                        outdoor()
                                         pygame.display.flip()
                                         time.sleep(0.075)
 
@@ -606,6 +1214,10 @@ while ingame:
                                             yluffy += 5
                                             screen_wallpaper = screen.blit(game_intro,(0,0))
                                             screen_luffy = screen.blit(luffy_d,(xluffy,yluffy))
+                                            inHouse1()
+                                            inHouse2()
+                                            inUphouse()
+                                            outdoor()
                                             pygame.display.flip()
                                             time.sleep(0.075)
 
