@@ -1,0 +1,116 @@
+Plus bas niveau de la map : y=469
+Deuxième niveau plus bas de la map : y=349
+
+Plus haut niveau de la map (petit couloir) : y=109
+Maison gauche : y=189
+Maison droite : y=269
+
+Plus gauche de la map : x=56
+Deuxième plus à gauche de la map : x=184
+Troisième plus à gauche de la map : x=248
+Droite de la maison de gauche : x=440
+
+Plus droite de la map : x=824
+Deuxième plus droite de la map : x=760
+Gauche de la maison de droite : x=632
+Gauche de la maison de gauche : x=312
+
+xleft_upforest1 = 56
+xleft_upforest2 = 184
+yleft_upforest = 229
+
+xleft_house1 = 248
+xleft_house2 = 568
+yleft_house = 189
+
+xstairs = 504
+ystairs = 109
+
+xright_house1 = 632
+xright_house2 = 824
+yright_house = 269
+
+xleft_downforest1 = 56
+xleft_downforest2 = 120
+yleft_downforest = 349
+
+xmiddle_downforest1 = 184
+xmiddle_downforest2 = 760
+ymiddle_downforest = 469
+
+xright_downforest = 824
+yright_downforest = 349
+
+yleft_forestborder1_1 = 229
+yleft_forestborder1_2 = 349
+xleft_forestborder1 = 56
+
+yleft_forestborder2_1 = 389
+yleft_forestborder2_2 = 469
+xleft_forestborder2 = 184
+
+yleft_forestborder3_1 = 109
+yleft_forestborder3_2 = 189
+xleft_forestborder3 = 248
+
+yright_righthouse1 = 189
+yright_righthouse2 = 229
+xright_righthouse = 568
+
+yright_forest1 = 389
+yright_forest2 = 469
+xright_forest = 760
+
+yright_map1 = 269
+yright_map2 = 349
+xright_map = 824
+
+
+xfrites = 371
+yfrites = 173
+xfrites_real = 371
+yfrites_real = 140
+
+xshield = 400
+yshield = 230
+xshield_real = 400
+yshield_real = 207
+
+xpotion = 540
+ypotion = 174
+xpotion_real = 542
+ypotion_real = 163
+
+xsword = 248
+ysword = 149
+xsword_real = 254
+ysword_real = 128
+
+
+xmsgbox = 12
+ymsgbox = 462
+
+xitemless_msg = 110
+yitemless_msg = 483
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
